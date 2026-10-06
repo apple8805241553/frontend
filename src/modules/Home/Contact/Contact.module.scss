@@ -1,0 +1,125 @@
+.contactSection {
+  position: relative;
+  padding: 0 32px 85px;
+  background-color: #87939e;
+  background-image: linear-gradient(rgb(100 116 133 / 64%), rgb(129 143 151 / 45%)), url("../../../assets/mountains.png");
+  background-position: center 75%;
+  background-size: cover;
+}
+
+.contactCard {
+  position: relative;
+  top: -115px;
+  width: min(820px, 100%);
+  margin: 0 auto -115px;
+  padding: 70px 64px 44px;
+  background: var(--color-card);
+}
+
+.contactCopy {
+  max-width: 560px;
+  margin-inline: auto;
+  text-align: center;
+
+  h2 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  > p:not(.contactPhone) {
+    margin-top: 25px;
+    font-size: 14px;
+    line-height: 1.95;
+  }
+}
+
+.contactEmail {
+  display: inline-block;
+  margin-top: 28px;
+  font-size: 14px;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+.contactPhone {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.8;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-accent);
+  }
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    transition: color 180ms ease;
+  }
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  a:hover {
+    color: var(--color-accent);
+  }
+}
+
+@media (max-width: 1000px) {
+  .contactCard {
+    padding-inline: 44px;
+  }
+}
+
+@media (max-width: 760px) {
+  .contactSection {
+    padding: 0 22px 58px;
+  }
+
+  .contactCard {
+    top: -85px;
+    margin-bottom: -85px;
+    padding: 45px 40px 32px;
+  }
+
+  .contactEmail {
+    margin-top: 18px;
+  }
+
+  .socialLinks {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 440px) {
+  .contactCard {
+    padding: 38px 24px 27px;
+  }
+
+  .socialLinks {
+    gap: 7px;
+  }
+}

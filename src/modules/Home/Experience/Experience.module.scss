@@ -1,0 +1,120 @@
+.experience {
+  padding-top: 130px;
+  padding-bottom: 244px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 770px;
+  margin: 79px auto 0;
+  padding: 0;
+  list-style: none;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 7px;
+    bottom: 24px;
+    left: calc(50% - 1px);
+    width: 2px;
+    background: var(--color-accent);
+  }
+
+  h3 {
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+}
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 208px;
+  padding-bottom: 30px;
+
+  &:nth-child(even) .timelineContent {
+    grid-column: 1;
+    text-align: right;
+    padding-left: 0;
+    padding-right: 46px;
+  }
+}
+
+.timelineContent {
+  grid-column: 2;
+  padding-left: 46px;
+}
+
+.timelineDot {
+  position: absolute;
+  top: 4px;
+  left: calc(50% - 6px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.timelinePeriod {
+  margin-bottom: 10px;
+  color: var(--color-accent);
+  font-size: 14px;
+  letter-spacing: 0.025em;
+}
+
+.timelineRole {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.timelineDescription {
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #e0e4eb;
+}
+
+@media (max-width: 760px) {
+  .experience {
+    padding-top: 85px;
+    padding-bottom: 180px;
+  }
+
+  .timeline {
+    max-width: 490px;
+    margin-top: 55px;
+
+    &::before {
+      left: 5px;
+    }
+
+    h3 {
+      font-size: 21px;
+    }
+  }
+
+  .timelineItem {
+    display: block;
+    min-height: auto;
+    padding-bottom: 40px;
+
+    &:nth-child(even) .timelineContent {
+      padding: 0 0 0 38px;
+      text-align: left;
+    }
+  }
+
+  .timelineDot {
+    left: 0;
+  }
+
+  .timelineContent {
+    padding: 0 0 0 38px;
+    text-align: left;
+  }
+}

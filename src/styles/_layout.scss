@@ -1,0 +1,10 @@
+.page-container {
+  width: min(var(--content-width), calc(100% - 64px));
+  margin-inline: auto;
+}
+
+@media (max-width: 760px) {
+  .page-container {
+    width: calc(100% - 44px);
+  }
+}

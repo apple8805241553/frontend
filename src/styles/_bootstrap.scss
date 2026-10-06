@@ -1,0 +1,9 @@
+// Bootstrap 僅提供 grid 與 utilities，頁面外觀由各模組的 SCSS 控制。
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/utilities/api";

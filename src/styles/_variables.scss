@@ -1,0 +1,15 @@
+:root {
+  --color-accent: #00d483;
+  --color-card: #333b50;
+  --color-slate: #657083;
+  --color-muted: #d2d6df;
+  --font-heading: "Montserrat", Arial, sans-serif;
+  --content-width: 980px;
+  --header-height: 88px;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --header-height: 72px;
+  }
+}

@@ -1,0 +1,45 @@
+.notice {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 12px;
+  color: #ffffff;
+  background: var(--color-card);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 24%);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgb(255 255 255 / 20%);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 440px) {
+  .notice {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}

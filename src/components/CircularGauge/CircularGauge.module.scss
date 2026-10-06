@@ -1,0 +1,94 @@
+.gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+  margin: 0;
+  padding: 28px 20px;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 16px;
+  background: rgb(40 53 71 / 24%);
+  box-shadow: 0 12px 32px rgb(30 38 54 / 8%);
+
+  &.isVisible {
+    .progress {
+      opacity: 1;
+      animation: fillGauge 1400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+  }
+}
+
+.dial {
+  position: relative;
+  width: min(100%, 180px);
+  aspect-ratio: 1;
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+
+  circle {
+    fill: none;
+    stroke-width: 8;
+  }
+}
+
+.track {
+  stroke: rgb(255 255 255 / 12%);
+}
+
+.progress {
+  stroke: var(--color-accent);
+  opacity: 0;
+}
+
+.value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.unit {
+  font-size: 0.4em;
+  color: var(--color-muted);
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+@keyframes fillGauge {
+  from {
+    stroke-dashoffset: 100;
+  }
+}
+
+@media (max-width: 760px) {
+  .gauge {
+    gap: 16px;
+    padding: 22px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gauge {
+    .progress {
+      opacity: 1;
+      animation: none;
+    }
+  }
+}

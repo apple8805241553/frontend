@@ -1,0 +1,21 @@
+.skipLink {
+  position: fixed;
+  top: -100px;
+  left: 20px;
+  z-index: 100;
+  padding: 14px 20px;
+  color: #172e25;
+  background: var(--color-accent);
+  text-decoration: none;
+
+  &:focus {
+    top: 12px;
+  }
+}
+
+.workBackground {
+  background-color: #4e5d70;
+  background-image: linear-gradient(180deg, rgb(64 81 99 / 69%), rgb(55 68 86 / 78%) 45%, rgb(41 53 70 / 88%)), url("../../assets/mountains.png");
+  background-position: center;
+  background-size: cover;
+}

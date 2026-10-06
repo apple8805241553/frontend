@@ -1,0 +1,53 @@
+.sectionHeading {
+  text-align: center;
+
+  h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(30px, 3.3vw, 42px);
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 0.08em;
+  }
+}
+
+.sectionNumber {
+  color: #c4cbd7;
+  font-weight: 400;
+}
+
+.sectionSubtitle {
+  margin-top: 22px;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.09em;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .sectionHeading {
+    h2 {
+      font-size: clamp(25px, 4.4vw, 34px);
+      letter-spacing: 0.045em;
+    }
+  }
+
+  .sectionSubtitle {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 440px) {
+  .sectionHeading {
+    h2 {
+      font-size: 23px;
+      letter-spacing: 0.025em;
+    }
+  }
+
+  .sectionSubtitle {
+    font-size: 10px;
+    letter-spacing: 0.045em;
+  }
+}
