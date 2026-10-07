@@ -53,11 +53,9 @@ npm run preview
 
 ## 與範本的差異及未查證部分
 
-前一輪已透過 Wix 預覽確認區塊名稱、技能比例、六段經歷、表單欄位與外部連結。本輪瀏覽器權限拒絕直接存取 Wix 示範首頁，因此沒有繼續取得完整原版背景、作品素材、computed styles 或手機視圖。
 
 - 社群圖示使用本地 SVG 重建。
 - 聯絡區塊移除原表單，僅呈現聯絡資訊與社群連結。
-- 頁尾改為「React template recreation」，不顯示不適用於本專案的「Powered and secured by Wix」。
 - 依已觀察的灰藍底、亮綠強調色、英文標題重建主要風格；區塊尺寸、字型和手機斷點是實作估值，**未查證為原站精確規格，也未做像素級比對**。
 - 頁面透過 Google Fonts 載入 Montserrat／Open Sans，這是外部字型請求；無網路時使用 Arial／系統 fallback。背景與作品圖均為本地檔案。
 - 範本外部連結沿用前一輪讀取結果，本輪沒有再次確認是否可正常開啟。
@@ -77,6 +75,10 @@ SCSS Module 與預處理器支援參考 [Vite 官方文件](https://vite.dev/gui
 
 本專案僅部署前端。執行 `npm run build` 後，將 `dist` 目錄交由靜態網站服務託管即可，不需要 API 服務或資料庫。
 
-本次沒有部署網站。前端沒有 `.openai/hosting.json`，可自行選擇部署平台。
+部署目標為 [GitHub Pages](https://apple8805241553.github.io/frontend/)，由 `.github/workflows/deploy-pages.yml` 在 `main` 分支收到 push 時自動執行 `npm ci`、`npm run build`，再發布 `dist`。Repository 的 Settings → Pages → Source 使用 GitHub Actions。
+
+`vite.config.ts` 的 `base` 設為 `/frontend/`，對應 repository 網址的子路徑。頭貼保留在 `src/assets/avatar.webp`，透過一般 import 載入，部署後會使用打包產生的圖片 URL。
+
+2026-10-07 已執行 `npm.cmd run build` 並成功產生 `dist`，包含 TypeScript 檢查。Bootstrap 的 Sass deprecation warnings 仍會顯示，但本次沒有造成建置失敗；未另外執行 test 或 lint。
 
 工具版本參考：[React 19.2](https://react.dev/blog/2025/10/01/react-19-2)、[TypeScript 5.9](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-9.html)、[Vite Node.js 要求](https://vite.dev/guide/)。套件版本使用相容範圍，實際解析版本以首次安裝產生的 lockfile 為準。

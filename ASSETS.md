@@ -1,16 +1,25 @@
 # 素材紀錄
 
-本專案的三張圖片於 2026-10-06 使用 **imagegen skill／內建 image_gen 工具**生成，屬於替代示範素材，沒有使用 CLI fallback 或 Wix 原素材。生成後已檢視圖片，並將最終檔案複製到本專案。
+本專案原有的三張圖片於 2026-10-06 使用 **imagegen skill／內建 image_gen 工具**生成，屬於替代示範素材，沒有使用 CLI fallback 或 Wix 原素材。生成後已檢視圖片，並將最終檔案複製到本專案。
 
 | 本地檔案 | 用途 | 尺寸 |
 | --- | --- | --- |
-| `src/assets/mountains.png` | 主視覺、技能、作品／經歷與聯絡區背景，透過 CSS overlay／crop 調整呈現 | 1536 × 1024 |
+| `src/assets/mountains.png` | 技能、作品／經歷與聯絡區背景，透過 CSS overlay／crop 調整呈現 | 1536 × 1024 |
+| `src/assets/technology-background.jpg` | 首頁主視覺的科技電路板背景，搭配深色遮罩 | 1920 × 1369 |
 | `src/assets/project-01.png` | PROJECT 01 耳機示範作品圖 | 1254 × 1254 |
 | `src/assets/project-02.png` | PROJECT 02 建築示範作品圖 | 1254 × 1254 |
 
 實際 PNG 尺寸以檔案 metadata 為準；作品圖片以 CSS object-fit 裁切呈現。
 
 R 標記、favicon 與社群圖示為本地 SVG 程式碼。Montserrat／Open Sans 透過 Google Fonts 外部樣式表載入，無法取得時使用系統字型。
+
+頭貼使用使用者提供的本機檔案 `src/assets/avatar.webp`，由 `ResumeModel.ts` 以一般 import 載入。
+
+## 科技背景來源
+
+2026-10-07 下載並檢視 Tyler Daviaux 的 [green circuit board](https://unsplash.com/photos/green-circuit-board-zS95n6sWuTA)，存為 `src/assets/technology-background.jpg`。來源為 Unsplash 免費圖片，使用 [Unsplash License](https://unsplash.com/license)，允許免費商業及非商業使用。網站載入本地檔案，沒有直接連結外站圖片。
+
+下載網址：`https://images.unsplash.com/photo-1526392269816-39d8ed656494?auto=format&fit=crop&fm=jpg&q=82&w=1920`。
 
 ## mountains.png 的完整 prompt
 

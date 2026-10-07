@@ -1,6 +1,6 @@
 import project01Image from "../assets/project-01.png";
 import project02Image from "../assets/project-02.png";
-
+import avatarImage from "../assets/avatar.webp";
 /** 首頁錨點；每個值對應一個區塊的 id。 */
 export type SectionId = "home" | "professional" | "portfolio" | "experience" | "contact";
 
@@ -48,16 +48,17 @@ export const profile = {
   profession: "Frond-End DEVELOPER",
   //未使用about
   about:
-    "感謝你瀏覽我的作品集！我目前專注於 Web 前端開發與數位產品設計。無論你是尋找專案合作、技術交流，或是招募相關合作機會，都歡迎透過 Email 或社群連結與我聯繫。我會在收到訊息後的24～48小時內 回覆。",
+    "感謝你瀏覽我的作品集！我目前專注於 Web 前端開發與數位產品設計。無論你是尋找專案合作、技術交流，或是招募相關合作機會，都歡迎透過電話或Email與我聯繫。我會在收到訊息後的24～48小時內 回覆。",
   contactIntroduction:
-    "感謝你瀏覽我的個人網站！我目前專注於 Web 前端開發與數位產品設計。無論你是尋找專案合作、技術交流，或是招募相關合作機會，都歡迎透過 Email 或社群連結與我聯繫。我會在收到訊息後的24～48小時內回覆。",
+    "感謝你瀏覽我的個人網站！我目前專注於 Web 前端開發與數位產品設計。無論你是尋找專案合作、技術交流，或是招募相關合作機會，都歡迎透過下方表單或Email與我聯繫。我會在收到訊息後的24～48小時內回覆。",
   email: "apple8805241553@gmail.com",
   phone: "0983-829-798",
   resumeUrl:
     "https://65c9126c-4af6-4899-b621-554d1fad7a0c.filesusr.com/ugd/84770f_a594f88e0dd34b7ca253388dd6f4c9bb.pdf",
   portfolioUrl: "https://www.wix.com/demone2/ux-ui-designer-resum/portfolio",
-  copyrightYear: 2035,
-} as const;
+  copyrightYear: 2026,
+  avatarSrc: avatarImage,
+};
 
 export const navigation: readonly NavigationItemModel[] = [
   { id: "home", label: "HOME" },

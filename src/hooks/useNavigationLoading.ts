@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-/** 追蹤本站錨點導覽的捲動完成時間；捲動停止、頁面離開或卸載時關閉對應 loading。 */
+/** 追蹤本站錨點及自訂 px 捲動的完成時間；捲動停止、頁面離開或卸載時關閉對應 loading。 */
 export default function useNavigationLoading(startLoading: () => () => void) {
   useEffect(() => {
     let frameId = 0;
@@ -35,6 +35,16 @@ export default function useNavigationLoading(startLoading: () => () => void) {
       let lastX = window.scrollX;
       let lastY = window.scrollY;
       let lastMovement = performance.now();
+
+      const scrollDistancePx = Number(anchor.dataset.scrollDistancePx);
+      if (Number.isFinite(scrollDistancePx) && scrollDistancePx >= 0) {
+        // 自訂距離以目前位置為起點，攔截原生錨點跳轉，避免兩次捲動互相覆蓋。
+        event.preventDefault();
+        window.scrollBy({
+          top: scrollDistancePx,
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+        });
+      }
 
       function observeScroll(timestamp: number) {
         if (window.scrollX !== lastX || window.scrollY !== lastY) {

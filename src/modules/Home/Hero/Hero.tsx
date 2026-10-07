@@ -1,7 +1,6 @@
-import { profile } from "../../../models/ResumeModel";
+import {  profile } from "../../../models/ResumeModel";
 import styles from "./Hero.module.scss";
 
-/** 呈現範本的三行姓名主視覺與職稱；背景由 SCSS 使用本地素材。 */
 export default function Hero() {
   return (
     <section id="home" className={styles.hero} aria-labelledby="hero-title" tabIndex={-1}>
@@ -14,8 +13,27 @@ export default function Hero() {
           </h1>
           <p className={styles.heroProfession}>{profile.profession}</p>
         </div>
+        <div className={styles.heroPortrait}>
+          {profile.avatarSrc ? (
+            <img
+              className={styles.portraitImage}
+              src={profile.avatarSrc}
+              alt={`${profile.name.trim()} 的個人頭貼`}
+              width={320}
+              height={320}
+            />
+          ) : (
+            <div className={styles.portraitPlaceholder}>
+              <svg viewBox="0 0 96 96" aria-hidden="true">
+                <circle cx="48" cy="32" r="15" />
+                <path d="M20 80v-7a28 28 0 0 1 56 0v7" />
+              </svg>
+              <span>個人頭貼</span>
+            </div>
+          )}
+        </div>
       </div>
-      <a className={styles.scrollCue} href="#professional" aria-label="Scroll to professional skills">
+      <a className={styles.scrollCue} href="#professional" aria-label="Scroll down">
         <span className={styles.scrollCueLine} />
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
       </a>
