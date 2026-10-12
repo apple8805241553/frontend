@@ -20,7 +20,7 @@ interface LoadingTask {
 }
 
 /** 統一管理操作的延遲 loading；同步完成與失敗均會清理，也支援多個並行操作。 */
-export default function LoadingProvider({ children }: LoadingProviderProps) {
+const LoadingProvider = ({ children }: LoadingProviderProps) => {
   const tasksRef = useRef(new Map<symbol, LoadingTask>());
   const [isLoading, setIsLoading] = useState(false);
 
@@ -69,4 +69,6 @@ export default function LoadingProvider({ children }: LoadingProviderProps) {
       <VisualLoading isVisible={isLoading} />
     </LoadingContext.Provider>
   );
-}
+};
+
+export default LoadingProvider;

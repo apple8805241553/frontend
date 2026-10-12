@@ -4,7 +4,7 @@
   inset: 0 0 auto;
   height: var(--header-height);
   border-bottom: 1px solid rgb(255 255 255 / 7%);
-  background: rgb(74 83 100 / 92%);
+  background: rgb(10 26 38 / 92%);
   backdrop-filter: blur(12px);
 }
 
@@ -88,7 +88,7 @@
     gap: 0;
     padding: 14px 22px 22px;
     border-bottom: 1px solid rgb(255 255 255 / 14%);
-    background: #404a5d;
+    background: #0b1e29;
     max-height: calc(100dvh - var(--header-height));
     overflow-y: auto;
 

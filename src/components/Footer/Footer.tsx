@@ -3,7 +3,7 @@ import BrandMark from "../BrandMark/BrandMark";
 import styles from "./Footer.module.scss";
 
 /** 顯示範本示範年份與回到首頁的連結，註明這是 React 重建版本。 */
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className={styles.siteFooter}>
       <div className={`page-container ${styles.footerInner}`}>
@@ -15,4 +15,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

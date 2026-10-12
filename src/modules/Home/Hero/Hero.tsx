@@ -1,16 +1,17 @@
-import {  profile } from "../../../models/ResumeModel";
+import { profile } from "../../../models/ResumeModel";
 import styles from "./Hero.module.scss";
 
-export default function Hero() {
+/** 顯示首頁 Hero 的姓名、職稱與個人頭貼。 */
+const Hero = () => {
   return (
-    <section id="home" className={styles.hero} aria-labelledby="hero-title" tabIndex={-1}>
+    <section id="hero" className={styles.hero} aria-labelledby="hero-title" tabIndex={-1}>
       <div className={`page-container ${styles.heroInner}`}>
         <div className={styles.heroCopy}>
-          <h1 id="hero-title">
+          <h2 id="hero-title" className={styles.heroTitle}>
             <span>I<span className="accent">’</span>M</span>
             <span>{profile.firstName}</span>
             <span>{profile.lastName}<span className="accent">.</span></span>
-          </h1>
+          </h2>
           <p className={styles.heroProfession}>{profile.profession}</p>
         </div>
         <div className={styles.heroPortrait}>
@@ -39,4 +40,6 @@ export default function Hero() {
       </a>
     </section>
   );
-}
+};
+
+export default Hero;

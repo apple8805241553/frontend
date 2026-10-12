@@ -20,7 +20,9 @@
 }
 
 .siteFooter {
-  background: var(--color-card);
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgb(54 185 201 / 20%);
 }
 
 .footerInner {

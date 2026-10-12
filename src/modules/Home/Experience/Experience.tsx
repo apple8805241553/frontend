@@ -3,7 +3,7 @@ import SectionHeading from "../../../components/SectionHeading/SectionHeading";
 import styles from "./Experience.module.scss";
 
 /** 依資料順序呈現個人經歷時間軸；沒有提供描述時省略段落，手機版改為單欄。 */
-export default function Experience() {
+const Experience = () => {
   return (
     <section id="experience" className={`${styles.experience} page-container`} aria-labelledby="experience-title" tabIndex={-1}>
       <SectionHeading id="experience-title" number="03" title="EXPERIENCE" />
@@ -22,4 +22,6 @@ export default function Experience() {
       </ol>
     </section>
   );
-}
+};
+
+export default Experience;

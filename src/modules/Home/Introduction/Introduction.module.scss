@@ -1,0 +1,148 @@
+.introduction {
+  position: relative;
+  padding-top: calc(var(--header-height) + 64px);
+  padding-bottom: 88px;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: "";
+    background: radial-gradient(ellipse at top right, rgb(0 212 131 / 10%), transparent 60%), rgb(23 44 49 / 35%);
+  }
+}
+
+.introductionContent {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.title {
+  margin-top: 16px;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+}
+
+.quote {
+  margin: 24px 0 0;
+  color: var(--color-accent);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 36px 0 0;
+  padding-block: 24px;
+  border-block: 1px solid rgb(255 255 255 / 16%);
+
+  dt {
+    color: var(--color-muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  dd {
+    display: grid;
+    gap: 6px;
+    margin: 8px 0 0;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  dd span {
+    color: var(--color-muted);
+    font-size: 14px;
+  }
+}
+
+.summary {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+  color: var(--color-muted);
+  font-size: 17px;
+  line-height: 1.9;
+  overflow-wrap: break-word;
+}
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.capabilityCard {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid rgba(149, 27, 27, 0.16);
+  border-radius: 16px;
+  background: rgba(10, 26, 38, 0.88);
+  overflow-wrap: break-word;
+
+  h2 {
+    color: var(--color-accent);
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  ul {
+    display: grid;
+    gap: 12px;
+    margin: 20px 0 0;
+    padding-left: 20px;
+    color: var(--color-muted);
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+  li::marker {
+    color: var(--color-accent);
+  }
+
+  strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 760px) {
+  .introduction {
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 64px;
+  }
+
+  .facts {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .summary {
+    font-size: 16px;
+  }
+
+  .capabilityGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 440px) {
+  .capabilityCard {
+    padding: 24px 20px;
+  }
+}

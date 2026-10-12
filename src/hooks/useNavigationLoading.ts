@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 /** 追蹤本站錨點及自訂 px 捲動的完成時間；捲動停止、頁面離開或卸載時關閉對應 loading。 */
-export default function useNavigationLoading(startLoading: () => () => void) {
+const useNavigationLoading = (startLoading: () => () => void) => {
   useEffect(() => {
     let frameId = 0;
     let finishLoading: (() => void) | undefined;
@@ -72,4 +72,6 @@ export default function useNavigationLoading(startLoading: () => () => void) {
       finishNavigation();
     };
   }, [startLoading]);
-}
+};
+
+export default useNavigationLoading;

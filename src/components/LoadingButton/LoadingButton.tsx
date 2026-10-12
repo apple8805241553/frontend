@@ -15,7 +15,7 @@ interface LoadingButtonProps extends Omit<ComponentProps<"button">, "onClick"> {
  * 包覆按鈕操作，等待超過 0.5 秒時顯示共用 loading，處理期間避免重複點擊。
  * submit 按鈕未提供 onClick 時維持原生送出，由表單以 runWithLoading 追蹤實際處理。
  */
-export default function LoadingButton({ onClick, disabled, type = "button", ...buttonProps }: LoadingButtonProps) {
+const LoadingButton = ({ onClick, disabled, type = "button", ...buttonProps }: LoadingButtonProps) => {
   const { runWithLoading } = useLoading();
   const [isPending, setIsPending] = useState(false);
   const pendingRef = useRef(false);
@@ -41,4 +41,6 @@ export default function LoadingButton({ onClick, disabled, type = "button", ...b
       onClick={onClick ? handleClick : undefined}
     />
   );
-}
+};
+
+export default LoadingButton;

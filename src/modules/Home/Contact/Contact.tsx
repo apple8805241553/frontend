@@ -5,7 +5,7 @@ import styles from "./Contact.module.scss";
 // #endregion
 
 /** 呈現聯絡資訊與社群連結，讓訪客透過外部管道聯繫。 */
-export default function Contact() {
+const Contact = () => {
   return (
     <section id="contact" className={styles.contactSection} aria-labelledby="contact-title" tabIndex={-1}>
       <div className={styles.contactCard}>
@@ -27,4 +27,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+
+export default Contact;

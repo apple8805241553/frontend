@@ -1,19 +1,18 @@
 .contactSection {
   position: relative;
   padding: 0 32px 85px;
-  background-color: #87939e;
-  background-image: linear-gradient(rgb(100 116 133 / 64%), rgb(129 143 151 / 45%)), url("../../../assets/mountains.png");
-  background-position: center 75%;
-  background-size: cover;
 }
 
 .contactCard {
   position: relative;
+  z-index: 2;
   top: -115px;
   width: min(820px, 100%);
   margin: 0 auto -115px;
   padding: 70px 64px 44px;
-  background: var(--color-card);
+  border: 1px solid rgb(54 185 201 / 24%);
+  border-radius: 16px;
+  background: rgb(10 26 38 / 94%);
 }
 
 .contactCopy {

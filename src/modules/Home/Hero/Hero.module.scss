@@ -1,12 +1,21 @@
 .hero {
   position: relative;
   min-height: 930px;
-  background-color: #172c31;
-  background-image: linear-gradient(90deg, rgb(16 28 40 / 92%), rgb(19 40 47 / 76%) 65%, rgb(15 31 42 / 72%)), url("../../../assets/technology-background.jpg");
-  background-position: center;
-  background-size: cover;
 
-  h1 {
+  // 背景與粒子共用 App 的堆疊層，降低背景不透明度讓底層粒子可見。
+  &::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: "";
+    opacity: 0.6;
+    background-color: #172c31;
+    background-image: linear-gradient(90deg, rgb(16 28 40 / 92%), rgb(19 40 47 / 76%) 65%, rgb(15 31 42 / 72%)), url("../../../assets/technology-background.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .heroTitle {
     display: grid;
     gap: 10px;
     font-family: var(--font-heading);
@@ -16,176 +25,179 @@
     letter-spacing: 0.1em;
   }
 
-  h1 > span {
+  .heroTitle > span {
     display: block;
   }
-}
 
-.heroInner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
-  align-items: start;
-  gap: 56px;
-  padding-top: 224px;
-  padding-bottom: 240px;
-}
-
-.heroCopy {
-  min-width: 0;
-  max-width: 600px;
-  margin-left: 21%;
-}
-
-.heroPortrait {
-  width: 100%;
-  aspect-ratio: 1;
-  margin-top: 12px;
-  overflow: hidden;
-  border: 1px solid rgb(0 212 131 / 55%);
-  border-radius: 24px;
-  background: rgb(16 30 40 / 70%);
-  box-shadow: 0 24px 60px rgb(0 0 0 / 25%), 0 0 32px rgb(0 212 131 / 8%);
-}
-
-.portraitImage {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.portraitPlaceholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  height: 100%;
-  color: var(--color-muted);
-  font-size: 14px;
-  letter-spacing: 0.15em;
-
-  svg {
-    width: 96px;
-    height: 96px;
-    fill: none;
-    stroke: var(--color-accent);
-    stroke-width: 1.5;
-    stroke-linecap: round;
-  }
-}
-
-.heroProfession {
-  margin-top: 35px;
-  max-width: 370px;
-  font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.8;
-  letter-spacing: 0.11em;
-}
-
-.scrollCue {
-  position: absolute;
-  bottom: 198px;
-  left: calc(50% - 12px);
-  width: 24px;
-  display: grid;
-  justify-items: center;
-  gap: 6px;
-  color: rgb(255 255 255 / 65%);
-  text-decoration: none;
-
-  svg {
-    width: 24px;
-    height: 24px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.5;
-  }
-}
-
-.scrollCueLine {
-  height: 34px;
-  width: 1px;
-  background: currentColor;
-}
-
-@media (max-width: 1000px) {
   .heroInner {
-    grid-template-columns: minmax(0, 1fr) minmax(240px, 280px);
-    gap: 32px;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+    align-items: start;
+    gap: 56px;
+    padding-top: 224px;
+    padding-bottom: 240px;
   }
 
   .heroCopy {
-    margin-left: 16%;
-  }
-}
-
-@media (max-width: 760px) {
-  .hero {
-    min-height: 800px;
-
-    h1 {
-      font-size: clamp(48px, 9vw, 68px);
-      letter-spacing: 0.065em;
-    }
-  }
-
-  .heroInner {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 36px;
-    padding-top: 160px;
-    padding-bottom: 160px;
-  }
-
-  .heroCopy {
-    margin-left: 10%;
+    min-width: 0;
+    max-width: 600px;
+    margin-left: 21%;
   }
 
   .heroPortrait {
-    width: min(280px, 90%);
-    margin-top: 0;
-    margin-left: 10%;
+    width: 100%;
+    aspect-ratio: 1;
+    margin-top: 12px;
+    overflow: hidden;
+    border: 1px solid rgb(0 212 131 / 55%);
+    border-radius: 24px;
+    background: rgb(16 30 40 / 70%);
+    box-shadow: 0 24px 60px rgb(0 0 0 / 25%), 0 0 32px rgb(0 212 131 / 8%);
+  }
+
+  .portraitImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .portraitPlaceholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+    color: var(--color-muted);
+    font-size: 14px;
+    letter-spacing: 0.15em;
+
+    svg {
+      width: 96px;
+      height: 96px;
+      fill: none;
+      stroke: var(--color-accent);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+    }
   }
 
   .heroProfession {
-    max-width: 310px;
-    font-size: 16px;
+    margin-top: 35px;
+    max-width: 370px;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.8;
+    letter-spacing: 0.11em;
   }
 
   .scrollCue {
-    bottom: 64px;
-  }
-}
+    position: absolute;
+    z-index: 2;
+    bottom: 198px;
+    left: calc(50% - 12px);
+    width: 24px;
+    display: grid;
+    justify-items: center;
+    gap: 6px;
+    color: rgb(255 255 255 / 65%);
+    text-decoration: none;
 
-@media (max-width: 440px) {
-  .hero {
-    min-height: 730px;
-
-    h1 {
-      font-size: clamp(36px, 10.8vw, 47px);
-      letter-spacing: 0.06em;
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
     }
   }
 
-  .heroInner {
-    padding-top: 144px;
+  .scrollCueLine {
+    height: 34px;
+    width: 1px;
+    background: currentColor;
   }
 
-  .heroCopy {
-    margin-left: 5%;
+  @media (max-width: 1000px) {
+    .heroInner {
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 280px);
+      gap: 32px;
+    }
+
+    .heroCopy {
+      margin-left: 16%;
+    }
   }
 
-  .heroPortrait {
-    width: min(240px, 95%);
-    margin-left: 5%;
-    border-radius: 20px;
+  @media (max-width: 760px) {
+    & {
+      min-height: 800px;
+
+      .heroTitle {
+        font-size: clamp(48px, 9vw, 68px);
+        letter-spacing: 0.065em;
+      }
+    }
+
+    .heroInner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 36px;
+      padding-top: 160px;
+      padding-bottom: 160px;
+    }
+
+    .heroCopy {
+      margin-left: 10%;
+    }
+
+    .heroPortrait {
+      width: min(280px, 90%);
+      margin-top: 0;
+      margin-left: 10%;
+    }
+
+    .heroProfession {
+      max-width: 310px;
+      font-size: 16px;
+    }
+
+    .scrollCue {
+      bottom: 64px;
+    }
   }
 
-  .heroProfession {
-    max-width: 245px;
-    font-size: 13px;
+  @media (max-width: 440px) {
+    & {
+      min-height: 730px;
+
+      .heroTitle {
+        font-size: clamp(36px, 10.8vw, 47px);
+        letter-spacing: 0.06em;
+      }
+    }
+
+    .heroInner {
+      padding-top: 144px;
+    }
+
+    .heroCopy {
+      margin-left: 5%;
+    }
+
+    .heroPortrait {
+      width: min(240px, 95%);
+      margin-left: 5%;
+      border-radius: 20px;
+    }
+
+    .heroProfession {
+      max-width: 245px;
+      font-size: 13px;
+    }
   }
 }

@@ -9,6 +9,12 @@ export interface NavigationItemModel {
   label: string;
 }
 
+export interface IntroductionGroupModel {
+  id: string;
+  title: string;
+  points: readonly { label?: string; text: string }[];
+}
+
 /** 技能進度資料；percent 使用 0～100 的百分比。 */
 export interface SkillModel {
   name: string;
@@ -20,7 +26,6 @@ export interface ProjectModel {
   title: string;
   image: string;
   imageAlt: string;
-  href: string;
 }
 
 export interface ExperienceModel {
@@ -55,7 +60,6 @@ export const profile = {
   phone: "0983-829-798",
   resumeUrl:
     "https://65c9126c-4af6-4899-b621-554d1fad7a0c.filesusr.com/ugd/84770f_a594f88e0dd34b7ca253388dd6f4c9bb.pdf",
-  portfolioUrl: "https://www.wix.com/demone2/ux-ui-designer-resum/portfolio",
   copyrightYear: 2026,
   avatarSrc: avatarImage,
 };
@@ -68,17 +72,88 @@ export const navigation: readonly NavigationItemModel[] = [
   { id: "contact", label: "CONTACT" },
 ];
 
-export const technologySkills: readonly SkillModel[] = [
-  { name: "React", percent: 90 },
-  { name: "Angular", percent: 70 },
-  { name: "Node.js", percent: 75 },
+export const introduction = {
+  title: "個人簡介",
+  quote: "提高效率，就是增加自己的價值",
+  facts: [
+    { label: "目前職務", value: "前端工程師", detail: "" },
+    { label: "所在地", value: "高雄市前鎮區", detail: "" },
+    { label: "希望職稱", value: "前端工程師", detail: "" },
+  ],
+  paragraphs: [
+    "我是一名以前端為核心、以全端開發能力為目標的工程師，也能與 PM、後端工程師協作推進專案。主要使用 React，擁有 ERP 系統維護、管理與新專案開發經驗。",
+    "自我作品能獨立完成小型前後端整合與部署（GitHub Pages、Vercel、Render）。",
+  ],
+};
+
+export const introductionGroups: readonly IntroductionGroupModel[] = [
+  {
+    id: "technical-skills",
+    title: "技術能力",
+    points: [
+      { label: "前端開發", text: "React、HTML、CSS、JavaScript、SCSS、Bootstrap。" },
+      { label: "後端與資料庫", text: "Node.js、MySQL。" },
+      { label: "功能整合", text: "RESTful API、WebSocket 串接及編輯器功能開發。" },
+      { label: "版本控制", text: "Git 基本指令、分支操作與 Git Flow 觀念。" },
+      { label: "設計與安全", text: "Design Pattern、職責分離、模組化與基本前端資安觀念。" },
+    ],
+  },
+  {
+    id: "development-quality",
+    title: "開發流程與品質",
+    points: [
+      { text: "先撰寫規格書，釐清業務邏輯、功能邊界與程式結構，再進入實作。" },
+      { text: "重視程式碼的可讀性與可維護性，透過 Code Review 與必要的重構改善品質。" },
+      { text: "依專案情境進行 Trade-off，衡量時程、實作複雜度、修改風險與維護成本。" },
+      { text: "評估設計模式與抽象化的適用性，避免過度設計。" },
+    ],
+  },
+  {
+    id: "ai-collaboration",
+    title: "AI 協作能力",
+    points: [
+      { text: "使用過 Codex、Claude Code，協助分析問題、比較方案與開發功能。" },
+      { text: "透過 AGENTS.md 建立開發規範，明確定義架構限制與修改原則。" },
+      { text: "撰寫 Skill，整理工作流程、程式碼規範與檢查重點。" },
+      { text: "提供明確需求、上下文與錯誤回報，引導 AI 修正產出。" },
+      { text: "檢視程式邏輯與影響範圍，理解執行流程後再採用，保留技術判斷與品質控管。" },
+    ],
+  },
+  {
+    id: "teamwork",
+    title: "團隊溝通與問題解決",
+    points: [
+      { text: "與 PM 釐清核心需求、優先順序及交付範圍。" },
+      { text: "與後端工程師確認 API 規格、資料流程與錯誤處理方式。" },
+      { text: "遇到 Bug 時，整理重現步驟，依專案結構追查原因，區分已知資訊與待驗證假設。" },
+    ],
+  },
 ];
 
-export const skills: readonly SkillModel[] = [
-  { name: "JAVASCRIPT", percent: 85 },
-  { name: "HTML ", percent: 80 },
-  { name: "CSS && SCSS", percent: 80 },
-];
+/** 新增技術的 percent 為暫定展示值，既有技術沿用原本分數。 */
+export const technologyGroups = {
+  frontend: [
+    { name: "HTML5", percent: 80 },
+    { name: "CSS3", percent: 80 },
+    { name: "JavaScript (ES6+)", percent: 85 },
+    { name: "React", percent: 90 },
+    { name: "Bootstrap", percent: 78 },
+    { name: "Angular", percent: 70 },
+  ],
+  backend: [
+    { name: "Node.js", percent: 75 },
+    { name: "MySQL", percent: 72 },
+    { name: "RESTful API", percent: 80 },
+  ],
+  tools: [
+    { name: "Git/GitHub", percent: 82 },
+    { name: "Figma", percent: 78 },
+    { name: "Postman", percent: 80 },
+    { name: "Claude Code", percent: 83 },
+    { name: "Cursor", percent: 76 },
+    { name: "Codex", percent: 88 },
+  ],
+} satisfies Record<string, readonly SkillModel[]>;
 
 export const projects: readonly ProjectModel[] = [
   {
@@ -86,14 +161,12 @@ export const projects: readonly ProjectModel[] = [
     title: "PROJECT 01",
     image: project01Image,
     imageAlt: "Black headphones on a grey studio surface — replacement project artwork",
-    href: "https://www.wix.com/demone2/ux-ui-designer-resum/portfolio-collections/my-portfolio/project-01",
   },
   {
     id: "project-02",
     title: "PROJECT 02",
     image: project02Image,
     imageAlt: "Modern concrete museum facade — replacement project artwork",
-    href: "https://www.wix.com/demone2/ux-ui-designer-resum/portfolio-collections/my-portfolio/project-02",
   },
 ];
 
@@ -129,7 +202,7 @@ export const experiences: readonly ExperienceModel[] = [
 ];
 
 export const socialLinks: readonly SocialLinkModel[] = [
-  { platform: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/wix-com" },
+  { platform: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/%E5%AE%97%E7%BF%B0-%E5%90%B3-9aa1a6360/" },
   { platform: "github", label: "GitHub", href: "https://github.com/apple8805241553" },
   { platform: "facebook", label: "Facebook", href: "https://www.facebook.com/profile.php?viewas=100000686899395&id=100003902187438" },
 ];

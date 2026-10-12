@@ -11,7 +11,7 @@ import styles from "./Header.module.scss";
 // #endregion
 
 /** 提供區塊導覽、目前閱讀位置與可用鍵盤操作的手機選單。 */
-export default function Header() {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("home");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -113,4 +113,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;
