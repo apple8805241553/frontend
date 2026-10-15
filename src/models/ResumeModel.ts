@@ -26,6 +26,10 @@ export interface ProjectModel {
   title: string;
   image: string;
   imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageBackground: string;
+  videoUrl: string;
 }
 
 export interface ExperienceModel {
@@ -158,15 +162,23 @@ export const technologyGroups = {
 export const projects: readonly ProjectModel[] = [
   {
     id: "project-01",
-    title: "PROJECT 01",
+    title: "Food",
     image: project01Image,
-    imageAlt: "Black headphones on a grey studio surface — replacement project artwork",
+    imageAlt: "Food 美食網站首頁，展示料理分類與推薦餐點",
+    imageWidth: 1863,
+    imageHeight: 850,
+    imageBackground: "#fffaf1",
+    videoUrl: "https://www.youtube.com/watch?v=tZQFh2Nknjw",
   },
   {
     id: "project-02",
-    title: "PROJECT 02",
+    title: "TWSE Dashboard",
     image: project02Image,
-    imageAlt: "Modern concrete museum facade — replacement project artwork",
+    imageAlt: "TWSE Dashboard 個人市場觀測站入口畫面",
+    imageWidth: 1910,
+    imageHeight: 877,
+    imageBackground: "#101615",
+    videoUrl: "https://www.youtube.com/watch?v=JggkWjDMgIY",
   },
 ];
 

@@ -38,12 +38,26 @@ const Portfolio = () => {
                 aria-hidden={index !== activeIndex}
                 inert={index !== activeIndex}
               >
-                <div className={styles.projectCard}>
-                  <img src={project.image} alt={project.imageAlt} width={1254} height={1254} loading="lazy" decoding="async" />
+                <a
+                  className={styles.projectCard}
+                  style={{ backgroundColor: project.imageBackground }}
+                  href={project.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`觀看 ${project.title} 示範影片（在新分頁開啟）`}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    width={project.imageWidth}
+                    height={project.imageHeight}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className={styles.projectOverlay}>
                     <h3>{project.title}</h3>
                   </div>
-                </div>
+                </a>
               </div>
             ))}
           </div>
